@@ -1,0 +1,3 @@
+class ChunkDetector
+
+end

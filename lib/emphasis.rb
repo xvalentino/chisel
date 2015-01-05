@@ -1,0 +1,3 @@
+class Emphasis
+
+end

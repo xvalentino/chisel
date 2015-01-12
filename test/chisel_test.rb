@@ -84,4 +84,11 @@ class ChiselTest < MiniTest::Test
     organized_chunks = { "chunk1" => :paragraph, "#chunk2" => :heading }
     assert_equal organized_chunks, chunkgrouper.group(chunks)
   end
+
+  def test_emphasis_works
+    emphasis = Emphasis.new
+    before = "this *emphasis* is awesome"
+    after = "this <em>emphasis</em> is awesome"
+    assert_equal after, emphasis.parse(before)
+  end
 end

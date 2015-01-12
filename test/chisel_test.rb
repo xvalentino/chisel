@@ -63,4 +63,14 @@ class ChiselTest < MiniTest::Test
     chisel.parse("example text")
     assert chisel.document == "example text"
   end
+
+  def test_header_parses_heading_1
+    heading = Heading.new
+    assert_equal "<h1>Heading</h1>", heading.parse("#Heading")
+  end
+
+  def test_header_parses_heading_2
+    heading = Heading.new
+    assert_equal "<h2>Heading</h2>", heading.parse("##Heading")
+  end
 end

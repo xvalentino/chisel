@@ -73,4 +73,9 @@ class ChiselTest < MiniTest::Test
     heading = Heading.new
     assert_equal "<h2>Heading</h2>", heading.parse("##Heading")
   end
+
+  def test_paragraph_parses
+    paragraph = Paragraph.new
+    assert_equal "<p>Paragraph blah blah blah</p>", paragraph.parse("Paragraph blah blah blah")
+  end
 end

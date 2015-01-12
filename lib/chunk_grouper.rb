@@ -1,6 +1,6 @@
 class ChunkGrouper
   def group(chunks)
-    chunks.inject({}) do |organized_chunks, chunk|
+    grouped_chunks = chunks.inject({}) do |organized_chunks, chunk|
       if chunk[0] == ('#')
         organized = {"#{chunk}" => :heading}
       else
@@ -8,6 +8,6 @@ class ChunkGrouper
       end
       organized_chunks.merge!(organized)
     end
-
+    grouped_chunks
   end
 end

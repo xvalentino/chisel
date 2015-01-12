@@ -1,6 +1,6 @@
 class UnorderedList
   def parse(text)
     text = text.gsub('*', '')
-    "<ul>#{text}</ul>"
+    "<li>#{text}</li>"
   end
 end

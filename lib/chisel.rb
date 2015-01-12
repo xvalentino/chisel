@@ -15,6 +15,8 @@ class Chisel
     heading = Heading.new
     paragraph = Paragraph.new
     unordered_list = UnorderedList.new
+    emphasis = Emphasis.new
+    strongtag = StrongTag.new
     document = chunkify.divide(document)
     grouped = chunk_grouper.group(document)
 
@@ -29,6 +31,8 @@ class Chisel
     end
 
     parsed_doc.each do |chunk|
+      chunk = emphasis.parse(chunk)
+      chunk = strongtag.parse(chunk)
       puts "#{chunk}"
     end
   end

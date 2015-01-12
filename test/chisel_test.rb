@@ -54,9 +54,7 @@ class ChiselTest < MiniTest::Test
   end
 
   def test_parse_takes_in_document
-    chisel = Chisel.new
-    chisel.parse("example text")
-    assert chisel.document == "example text"
+    skip
   end
 
   def test_header_parses_heading_1
@@ -103,7 +101,7 @@ class ChiselTest < MiniTest::Test
   def test_unordered_list_parses
     list = UnorderedList.new
     before = "*okay"
-    assert_equal "<ul>okay</ul>", list.parse(before)
+    assert_equal "<li>okay</li>", list.parse(before)
   end
 
   def test_ordered_list_parses

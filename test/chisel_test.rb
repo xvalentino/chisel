@@ -7,9 +7,8 @@ require_relative '../lib/paragraph.rb'
 require_relative '../lib/list.rb'
 require_relative '../lib/emphasis.rb'
 require_relative '../lib/strongtag.rb'
-require_relative '../lib/chunk.rb'
-require_relative '../lib/chunkbuilder.rb'
-require_relative '../lib/chunkdetector.rb'
+require_relative '../lib/chunkify.rb'
+require_relative '../lib/chunk_grouper.rb'
 
 class ChiselTest < MiniTest::Test
 

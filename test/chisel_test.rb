@@ -91,4 +91,11 @@ class ChiselTest < MiniTest::Test
     after = "this <em>emphasis</em> is awesome"
     assert_equal after, emphasis.parse(before)
   end
+
+  def test_strong_tag_works
+    strong = StrongTag.new
+    before = "this **strongtag** is crazy"
+    after = "this <strong>strongtag</strong> is crazy"
+    assert_equal after, strong.parse(before)
+  end
 end

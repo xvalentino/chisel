@@ -58,4 +58,9 @@ class ChiselTest < MiniTest::Test
     assert chunkdetector
   end
 
+  def test_parse_takes_in_document
+    chisel = Chisel.new
+    chisel.parse("example text")
+    assert chisel.document == "example text"
+  end
 end

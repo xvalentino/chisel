@@ -3,7 +3,7 @@ class ChunkGrouper
     grouped_chunks = chunks.inject({}) do |organized_chunks, chunk|
       if chunk[0] == ('#')
         organized = {"#{chunk}" => :heading}
-      elsif chunk[0] == "*"
+      elsif chunk.count('*').odd?
         organized = {"#{chunk}" => :unordered_list}
       elsif chunk[0] == (/\d/)
         organized = {"#{chunk}" => :ordered_list}

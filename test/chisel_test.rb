@@ -72,4 +72,9 @@ class ChiselTest < MiniTest::Test
     paragraph = Paragraph.new
     assert_equal "<p>Paragraph blah blah blah</p>", paragraph.parse("Paragraph blah blah blah")
   end
+
+  def test_chunkify_makes_chunks
+    chunk = Chunkify.new
+    assert_equal ["chunk1", "chunk2"], chunk.divide("chunk1\nchunk2")
+  end
 end

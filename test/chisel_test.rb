@@ -29,7 +29,7 @@ class ChiselTest < MiniTest::Test
   end
 
   def test_List_exists
-    list = List.new
+    list = UnorderedList.new
     assert list
   end
 
@@ -100,10 +100,9 @@ class ChiselTest < MiniTest::Test
     assert_equal after, strong.parse(before)
   end
 
-  def test_chunkify_unordered_list
-    chunkify = Chunkify.new
-    list = "list:\n\n*element1\n*element 2\n\nnd of list"
-    after = ['list:', "*element1\n*element 2", "nd of list"]
-    assert_equal after, chunkify.divide(list)
+  def test_unordered_list_parses
+    list = UnorderedList.new
+    before = "*okay"
+    assert_equal "<ul>okay</ul>", list.parse(before)
   end
 end

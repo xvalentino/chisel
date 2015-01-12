@@ -4,7 +4,8 @@ require 'minitest/pride'
 require_relative '../lib/chisel.rb'
 require_relative '../lib/heading.rb'
 require_relative '../lib/paragraph.rb'
-require_relative '../lib/list.rb'
+require_relative '../lib/unordered_list.rb'
+require_relative '../lib/ordered_list.rb'
 require_relative '../lib/emphasis.rb'
 require_relative '../lib/strongtag.rb'
 require_relative '../lib/chunkify.rb'
@@ -97,5 +98,12 @@ class ChiselTest < MiniTest::Test
     before = "this **strongtag** is crazy"
     after = "this <strong>strongtag</strong> is crazy"
     assert_equal after, strong.parse(before)
+  end
+
+  def test_chunkify_unordered_list
+    chunkify = Chunkify.new
+    list = "list:\n\n*element1\n*element 2\n\nnd of list"
+    after = ['list:', "*element1\n*element 2", "nd of list"]
+    assert_equal after, chunkify.divide(list)
   end
 end

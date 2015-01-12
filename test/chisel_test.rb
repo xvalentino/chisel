@@ -75,6 +75,13 @@ class ChiselTest < MiniTest::Test
 
   def test_chunkify_makes_chunks
     chunk = Chunkify.new
-    assert_equal ["chunk1", "chunk2"], chunk.divide("chunk1\nchunk2")
+    assert_equal ["chunk1", "#chunk2"], chunk.divide("chunk1\n#chunk2")
+  end
+
+  def test_chunkgrouper_hashes_chunks
+    chunkgrouper = ChunkGrouper.new
+    chunks = ["chunk1", "#chunk2"]
+    organized_chunks = { "chunk1" => :paragraph, "#chunk2" => :heading }
+    assert_equal organized_chunks, chunkgrouper.group(chunks)
   end
 end

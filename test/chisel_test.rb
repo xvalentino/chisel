@@ -105,4 +105,8 @@ class ChiselTest < MiniTest::Test
     before = "*okay"
     assert_equal "<ul>okay</ul>", list.parse(before)
   end
+
+  def test_ordered_list_parses
+    skip
+  end
 end

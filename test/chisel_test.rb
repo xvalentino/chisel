@@ -42,18 +42,13 @@ class ChiselTest < MiniTest::Test
     assert strongtag
   end
 
-  def test_Chunk_exists
-    chunk = Chunk.new
+  def test_chunkify_exists
+    chunk = Chunkify.new
     assert chunk
   end
 
-  def test_ChunkBuilder_exists
-    chunkbuilder = ChunkBuilder.new
-    assert chunkbuilder
-  end
-
-  def test_ChunkDetector_exists
-    chunkdetector = ChunkDetector.new
+  def test_chunk_grouper_exists
+    chunkdetector = ChunkGrouper.new
     assert chunkdetector
   end
 

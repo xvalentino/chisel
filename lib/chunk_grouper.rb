@@ -1,0 +1,2 @@
+class ChunkGrouper
+end
